@@ -1,0 +1,19 @@
+/* Empty. Add your own CSS if you like */
+.pointer {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.sideMenuText{
+	font-family: Georgia;
+	font-size: 25px;
+}
+
+.dividers{
+	font-family: Georgia;
+	background-color: darkgray;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 14px;
+	height: 50px;
+}
