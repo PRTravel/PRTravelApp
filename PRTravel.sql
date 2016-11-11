@@ -67,7 +67,8 @@ ptitle character varying (100),
 pdate character varying (40),
 ptime character varying (40),
 plikes integer, 
-pcomments_count integer
+pcomments_count integer,
+pauthor integer NOT NULL
 );
 
 CREATE TABLE attractions(
@@ -75,7 +76,7 @@ aid integer NOT NULL,
 aname character varying (40),
 alocation character varying (40),
 adescription character varying (1000),
-aimageurl character varying (40)
+aimageurl character varying (100)
 );
 
 CREATE TABLE services(
@@ -145,11 +146,11 @@ INSERT INTO friends VALUES (4,2);
 INSERT INTO friends VALUES (4,3);
 INSERT INTO friends VALUES (4,4);
 
-INSERT INTO attractions VALUES (1,'Cueva Ventana', 'Arecibo', 'Maravillosa cueva con una vista brutal','img');
-INSERT INTO attractions VALUES (2,'Las Cascadas', 'Aguadilla', 'Las Cascadas water park is currently known as the biggest water park in the caribbean. Recently renovated, it has several attractions to both children and adults. Its attractions include the "Crazy River" which simulates rapids river, and the Wave Pools which simulate the waves of a beach. For children there is the Kiddy Pool area, and for the lovers of speed and adventure there is the Speed Slide, "The Bomb", and the Water Tunnel. Other attractions available','img');
-INSERT INTO attractions VALUES (3,'El Morro', 'San Juan', 'Historic fort site','img');
-INSERT INTO attractions VALUES (4,'El Yunque', 'Rio Grande', 'The El Yunque National Forest is the only tropical rain forest in the national forest system.  At nearly 29,000 acres, it is one of the smallest in size, yet one of the most biologically diverse of the national forests hosting hundreds of animal and plant species, some of which are found only here.','img');
-INSERT INTO attractions VALUES (5,'Flamenco Beach', 'Culebra', 'Flamenco Beach is a public beach on the Caribbean island of Culebra. It is known for its shallow turquoise waters, white sand, swimming areas, and diving sites. It stretches for a mile around a sheltered, horseshoe-shaped bay. Playa Flamenco is a popular beach destination for both Culebra and Puerto Rico. In March 2014, Flamenco beach was ranked 3rd best beach in the world with a TripAdvisor Travelers Choice Award.','img');
+INSERT INTO attractions VALUES (1,'Cueva Ventana', 'Arecibo', 'Maravillosa cueva con una vista brutal','http://localhost:9000/images/cuevaVentana.jpg');
+INSERT INTO attractions VALUES (2,'Las Cascadas', 'Aguadilla', 'Las Cascadas water park is currently known as the biggest water park in the caribbean. Recently renovated, it has several attractions to both children and adults. Its attractions include the "Crazy River" which simulates rapids river, and the Wave Pools which simulate the waves of a beach. For children there is the Kiddy Pool area, and for the lovers of speed and adventure there is the Speed Slide, "The Bomb", and the Water Tunnel. Other attractions available','http://localhost:9000/images/cascadas.jpg');
+INSERT INTO attractions VALUES (3,'El Morro', 'San Juan', 'Historic fort site','http://localhost:9000/images/morro.jpg');
+INSERT INTO attractions VALUES (4,'El Yunque', 'Rio Grande', 'The El Yunque National Forest is the only tropical rain forest in the national forest system.  At nearly 29,000 acres, it is one of the smallest in size, yet one of the most biologically diverse of the national forests hosting hundreds of animal and plant species, some of which are found only here.','http://localhost:9000/images/yunque.jpg');
+INSERT INTO attractions VALUES (5,'Flamenco Beach', 'Culebra', 'Flamenco Beach is a public beach on the Caribbean island of Culebra. It is known for its shallow turquoise waters, white sand, swimming areas, and diving sites. It stretches for a mile around a sheltered, horseshoe-shaped bay. Playa Flamenco is a popular beach destination for both Culebra and Puerto Rico. In March 2014, Flamenco beach was ranked 3rd best beach in the world with a TripAdvisor Travelers Choice Award.','http://localhost:9000/images/flamenco.jpg');
 
 INSERT INTO events VALUES (1,1,'Harry is going to el Yunque', '2016-11-7', '09:00 am', '2016-11-7','6:00pm',3);
 INSERT INTO events VALUES (2,2, 'Abdiel is going to Cueva Ventana', '2016-12-8', '09:00 am', '2016-12-8','02:00pm',1);
@@ -179,15 +180,15 @@ INSERT INTO wishlist VALUES (4,2);
 INSERT INTO wishlist VALUES (4,3);
 INSERT INTO wishlist VALUES (4,4);
 
-INSERT INTO services VALUES (1,1,'Cueva Ventanca Entrance',12);
+INSERT INTO services VALUES (1,1,'Cueva Ventana Entrance',12);
 INSERT INTO services VALUES (2,2,'Las Cascadas Entrance',16);
 INSERT INTO services VALUES (4,3,'El Yunque Tour',14);
 INSERT INTO services VALUES (3,4,'El Morro Entrance',6);
 INSERT INTO services VALUES (3,5,'El Morro Tour',12);
 INSERT INTO services VALUES (5,6,'Culebra Ferry Tickets',4);
 
-INSERT INTO posts VALUES (1,1, 'My awesome post', 'title', '2016-11-18', '07:30 am',40,3);
-INSERT INTO posts VALUES (1,2, 'My other awesome post', 'title', '2016-12-10', '09:30 pm',10,8);
+INSERT INTO posts VALUES (1,1, 'My awesome post', 'title', '2016-11-18', '07:30 am',40,3,2);
+INSERT INTO posts VALUES (1,2, 'My other awesome post', 'title', '2016-12-10', '09:30 pm',10,8,3);
 
 INSERT INTO notifications VALUES (1,1, 'Harry commented on your photo',1,null,2);
 INSERT INTO notifications VALUES (2,2, 'Geraldo liked your post.',null,1,1);
