@@ -29,14 +29,14 @@ CREATE TABLE users
   uemail character varying(50),
   imageurl character varying (50)
 );
+
 CREATE TABLE events (
 uid integer NOT NULL,
 eid integer NOT NULL, 
-edescription character varying(100),
-estart_date character varying(100),
-estart_hour character varying(100),
-eend_date character varying(100),
-eend_hour character varying(100),
+title character varying(100),
+start character varying(100),
+end1 character varying (100),
+allDay boolean,
 aid integer NOT NULL
 );
 
@@ -152,10 +152,10 @@ INSERT INTO attractions VALUES (3,'El Morro', 'San Juan', 'Historic fort site','
 INSERT INTO attractions VALUES (4,'El Yunque', 'Rio Grande', 'The El Yunque National Forest is the only tropical rain forest in the national forest system.  At nearly 29,000 acres, it is one of the smallest in size, yet one of the most biologically diverse of the national forests hosting hundreds of animal and plant species, some of which are found only here.','http://localhost:9000/images/yunque.jpg');
 INSERT INTO attractions VALUES (5,'Flamenco Beach', 'Culebra', 'Flamenco Beach is a public beach on the Caribbean island of Culebra. It is known for its shallow turquoise waters, white sand, swimming areas, and diving sites. It stretches for a mile around a sheltered, horseshoe-shaped bay. Playa Flamenco is a popular beach destination for both Culebra and Puerto Rico. In March 2014, Flamenco beach was ranked 3rd best beach in the world with a TripAdvisor Travelers Choice Award.','http://localhost:9000/images/flamenco.jpg');
 
-INSERT INTO events VALUES (1,1,'Harry is going to el Yunque', '2016-11-7', '09:00 am', '2016-11-7','6:00pm',3);
-INSERT INTO events VALUES (2,2, 'Abdiel is going to Cueva Ventana', '2016-12-8', '09:00 am', '2016-12-8','02:00pm',1);
-INSERT INTO events VALUES (3,3, 'Harambe is going to El Morro', '2017-11-7', '05:00 am', '2016-11-7','06:00pm',4);
-INSERT INTO events VALUES (4,4, 'Geraldo is going to las Cascadas', '2016-11-18', '07:30 am', '2016-11-18','04:00pm',2);
+INSERT INTO events VALUES (1,1,'Harry is going to el Yunque', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,3);
+INSERT INTO events VALUES (2,2, 'Abdiel is going to Cueva Ventana', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,1);
+INSERT INTO events VALUES (3,3, 'Harambe is going to El Morro', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,4);
+INSERT INTO events VALUES (4,4, 'Geraldo is going to las Cascadas', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,2);
 
 INSERT INTO albums VALUES (1,1,4,'El Yunque');
 INSERT INTO albums VALUES (2,1,3,'El Morro');
@@ -314,8 +314,3 @@ ALTER TABLE ONLY wishlist
     ADD CONSTRAINT wishlist_uid_fkey FOREIGN KEY (uid) REFERENCES users(uid);
 ALTER TABLE ONLY wishlist
     ADD CONSTRAINT wishlist_aid_fkey FOREIGN KEY (aid) REFERENCES attractions(aid);
-
-
-
-
-
