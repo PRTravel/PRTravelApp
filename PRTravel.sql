@@ -235,8 +235,20 @@ INSERT INTO services VALUES (3,5,'El Morro Tour',12);
 INSERT INTO services VALUES (5,6,'Culebra Ferry Tickets',4);
 
 
-INSERT INTO posts VALUES (1,1, 'My awesome post', 'title', '2016-11-18', '07:30 am',40,3,2);
-INSERT INTO posts VALUES (1,2, 'My other awesome post', 'title', '2016-12-10', '09:30 pm',10,8,3);
+INSERT INTO posts VALUES (1,1, 'El salto de Dona Juana was scary', 'title', '2016-11-18', '07:30 am',40,3,2);
+INSERT INTO posts VALUES (1,2, 'Crash Boat was awesome', 'title', '2016-12-10', '09:30 pm',10,8,4);
+INSERT INTO posts VALUES (1,3, 'PortaCoeli was one more church', 'title', '2016-11-18', '07:30 am',40,3,5);
+INSERT INTO posts VALUES (1,4, 'Tibes Ceremonial Park was fun', 'title', '2016-12-10', '09:30 pm',10,8,6);
+INSERT INTO posts VALUES (1,5, 'El yunque is great', 'title', '2016-11-18', '07:30 am',40,3,7);
+INSERT INTO posts VALUES (1,6, 'Culebra was a pain to get to ', 'title', '2016-12-10', '09:30 pm',10,8,1);
+INSERT INTO posts VALUES (1,7, 'El morro was historic', 'title', '2016-11-18', '07:30 am',40,3,2);
+INSERT INTO posts VALUES (1,8, 'Vieques is better than Culebra', 'title', '2016-12-10', '09:30 pm',10,8,2);
+INSERT INTO posts VALUES (1,9, 'Las cascadas was fun', 'title', '2016-11-18', '07:30 am',40,3,2);
+INSERT INTO posts VALUES (1,10, 'El parque de las ciencias estuvo interesante', 'title', '2016-12-10', '09:30 pm',10,8,2);
+
+
+
+
 
 INSERT INTO notifications VALUES (1,1, 'Harry commented on your photo',1,null,2);
 INSERT INTO notifications VALUES (2,2, 'Geraldo liked your post.',null,1,1);
@@ -248,24 +260,18 @@ INSERT INTO picture VALUES (2,2,'Tirandome por la chorrera',18,2,'img',4);
 INSERT INTO picture VALUES (3,3,'Las famosas garritas',12,4,'img',2);
 INSERT INTO picture VALUES (4,4,'La mina',12,4,'img',1);
 
-INSERT INTO comments VALUES (1, 2,'Awesome photos', '2016-11-18', '07:30 am',null,null,1);
-INSERT INTO comments VALUES (2, 2, 'Great adventure', '2016-11-18', '07:30 am',1);
-INSERT INTO comments VALUES (3, 1, 'This attraction was awesome', 'November 18, 2016', '07:30 am',null,1);
-INSERT INTO comments VALUES (4, 4, 'Awesome', '2016-11-18', '07:30 am',null,null,1);
-INSERT INTO comments VALUES (5, 2, 'Nice attraction!', 'October 12, 2016', '07:30 am',null,1);
-INSERT INTO comments VALUES (6, 3, 'Had a great time.', 'April 18, 2016', '07:30 am',null,1);
-INSERT INTO comments VALUES (7, 3, 'I wanna go again!', 'October 21, 2016', '07:30 am',null,2);
-INSERT INTO comments VALUES (8, 2, 'Beautiful place', 'December 4, 2016', '07:30 am',null,2);
-INSERT INTO comments VALUES (9, 1, 'Pretty awesome!', 'January 18, 2016', '07:30 am',null,2);
-INSERT INTO comments VALUES (10, 4, 'I wanna go again!', 'February 3, 2016', '07:30 am',null,3);
-INSERT INTO comments VALUES (11, 2, 'Beautiful place', 'May 18, 2016', '07:30 am',null,3);
-INSERT INTO comments VALUES (12, 3, 'Pretty awesome!', 'June 23, 2016', '07:30 am',null,3);
-INSERT INTO comments VALUES (13, 3, 'This attraction was awesome', 'July 5, 2016', '07:30 am',null,4);
-INSERT INTO comments VALUES (14, 2, 'Nice attraction!', 'August 18, 2016', '07:30 am',null,4);
-INSERT INTO comments VALUES (15, 4, 'Had a great time.', 'July 26, 2016', '07:30 am',null,4);
-INSERT INTO comments VALUES (16, 1, 'Nice attraction!', 'October 8, 2016', '07:30 am',null,5);
-INSERT INTO comments VALUES (17, 3, 'I wanna go again!', 'December 26, 2016', '07:30 am',null,5);
-INSERT INTO comments VALUES (18, 2, 'Nice attraction!', 'December 9, 2016', '07:30 am',null,5);
+INSERT INTO comments VALUES (1, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (2, 3, 'Great adventure', '2016-11-18', '07:30 am',10);
+INSERT INTO comments VALUES (3, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (4, 4, 'Great adventure', '2016-11-18', '07:30 am',10);
+INSERT INTO comments VALUES (5, 6,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (6, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
+INSERT INTO comments VALUES (7, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (9, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
+INSERT INTO comments VALUES (10, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (11, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
+INSERT INTO comments VALUES (12, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (13, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
 
 INSERT INTO likes VALUES (1,4,1,null);
 INSERT INTO likes VALUES (2,4,2,null);
