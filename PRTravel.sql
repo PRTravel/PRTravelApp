@@ -126,8 +126,14 @@ albumid integer NOT NULL
 
 INSERT INTO users VALUES (1, 'Geraldo', 'Lopez', 'geraldo29', 'password','awesome description', true, 'geraldo.lopez1@upr.edu','http://localhost:9000/images/geraldo.jpg');
 INSERT INTO users VALUES (2, 'Harry', 'Hernandez', 'harry123', 'password','awesome description', true, 'harry.hernandez1@upr.edu','http://localhost:9000/images/harry.jpg');
-INSERT INTO users VALUES (3, 'Abdiel', 'Vega', 'abdiel123', 'password','Me gustan los hombres y que', true, 'abdiel.vega1@upr.edu','http://localhost:9000/images/abdiel.jpg');
+INSERT INTO users VALUES (3, 'Abdiel', 'Vega', 'abdiel123', 'password','awesome description', true, 'abdiel.vega1@upr.edu','http://localhost:9000/images/abdiel.jpg');
 INSERT INTO users VALUES (4, 'Harambe', 'Gorilla', 'harambelives', 'password','awesome description', false, 'harambe.lives@upr.edu','http://localhost:9000/images/harambe.jpg');
+INSERT INTO users VALUES (5, 'Adam', 'Ritter', 'adam123', 'password','awesome description', false, 'adam123@upr.edu','http://localhost:9000/images/adam.jpg');
+INSERT INTO users VALUES (6, 'Ben', 'Young', 'ben123', 'password','awesome description', false, 'ben123@upr.edu','http://localhost:9000/images/ben.png');
+INSERT INTO users VALUES (7, 'Max', 'Beatty', 'max123', 'password','awesome description', false, 'max123@upr.edu','http://localhost:9000/images/max.png');
+INSERT INTO users VALUES (8, 'Mike', 'Smith', 'mike123', 'password','awesome description', false, 'mike123@upr.edu','http://localhost:9000/images/mike.png');
+INSERT INTO users VALUES (9, 'Perry', 'Platipus', 'perry123', 'password','awesome description', false, 'perry123@upr.edu','http://localhost:9000/images/perry.png');
+
 
 INSERT INTO friends VALUES (1,1);
 INSERT INTO friends VALUES (1,2);
@@ -151,11 +157,52 @@ INSERT INTO attractions VALUES (2,'Las Cascadas', 'Aguadilla', 'Las Cascadas wat
 INSERT INTO attractions VALUES (3,'El Morro', 'San Juan', 'Historic fort site','http://localhost:9000/images/morro.jpg');
 INSERT INTO attractions VALUES (4,'El Yunque', 'Rio Grande', 'The El Yunque National Forest is the only tropical rain forest in the national forest system.  At nearly 29,000 acres, it is one of the smallest in size, yet one of the most biologically diverse of the national forests hosting hundreds of animal and plant species, some of which are found only here.','http://localhost:9000/images/yunque.jpg');
 INSERT INTO attractions VALUES (5,'Flamenco Beach', 'Culebra', 'Flamenco Beach is a public beach on the Caribbean island of Culebra. It is known for its shallow turquoise waters, white sand, swimming areas, and diving sites. It stretches for a mile around a sheltered, horseshoe-shaped bay. Playa Flamenco is a popular beach destination for both Culebra and Puerto Rico. In March 2014, Flamenco beach was ranked 3rd best beach in the world with a TripAdvisor Travelers Choice Award.','http://localhost:9000/images/flamenco.jpg');
+INSERT INTO attractions VALUES (6,'Media Luna Beach', 'Vieques', 'Awesome Beach','http://localhost:9000/images/viequesbeach.jpg');
+INSERT INTO attractions VALUES (7,'Crash Boat Beach', 'Aguadilla', 'Awesome Beach','http://localhost:9000/images/crashboat.jpg');
+INSERT INTO attractions VALUES (8,'Toro Verde', 'Orocovis', 'Zipline','http://localhost:9000/images/toroverde.jpg');
+INSERT INTO attractions VALUES (9,'Parque de las Ciencias', 'Bayamon', 'Great Science Park','http://localhost:9000/images/ciencias.jpg');
+INSERT INTO attractions VALUES (10,'Gozalandia', 'San Sebastian', 'Great waterfall to go with friends','http://localhost:9000/images/goza.jpg');
+INSERT INTO attractions VALUES (11,'Salto Doña Juana', 'Orocovis', 'Un pequeno rio','http://localhost:9000/images/juana.jpg');
+INSERT INTO attractions VALUES (12,'Bosque Seco', 'Guanica', 'Dry Forest','http://localhost:9000/images/bosqueseco.jpg');
+INSERT INTO attractions VALUES (13,'Parque De Bombas', 'Ponce', 'Terroist park','http://localhost:9000/images/bombas.jpg');
+INSERT INTO attractions VALUES (14,'La Guancha', 'Ponce', 'Nice Boardwalk','http://localhost:9000/images/guancha.jpg');
+INSERT INTO attractions VALUES (15,'La Parguera', 'Lajas', 'Nice family place','http://localhost:9000/images/parguera.jpg');
+INSERT INTO attractions VALUES (16,'Cuevas de Camuy', 'Camuy', 'Lots of bats','http://localhost:9000/images/cuevascamuy.jpg');
+INSERT INTO attractions VALUES (17,'Bio Bay', 'Fajardo', 'Green water woohoo','http://localhost:9000/images/biobay.jpg');
+INSERT INTO attractions VALUES (18,'Kioskos de Luquillo', 'Luquillo', 'Comete un coco y una alcapuria','http://localhost:9000/images/kioskos.jpg');
+INSERT INTO attractions VALUES (19,'Giligans Island', 'Guanica', 'Overated','http://localhost:9000/images/giligans.jpg');
+INSERT INTO attractions VALUES (20,'Isla de Mona', 'Mayaguez', 'No, there are no monkeys','http://localhost:9000/images/mona.jpg');
+INSERT INTO attractions VALUES (21,'Caja De Muerto', 'Ponce', 'No dead bodies here :(','http://localhost:9000/images/muerto.jpg');
+INSERT INTO attractions VALUES (22,'Palomino Island', 'Fajardo', 'Private Island pa riquitillos','http://localhost:9000/images/palomino.jpg');
+INSERT INTO attractions VALUES (23,'Casa Pueblo', 'Adjuntas', 'A house','http://localhost:9000/images/casapueblo.jpg');
+INSERT INTO attractions VALUES (24,'Mar Chiquita', 'Manati', 'Awesome Beach','http://localhost:9000/images/chiquita.jpg');
+INSERT INTO attractions VALUES (25,'Zoologico', 'Mayaguez', 'A zoo where animals get mistreated and dont get fed.','http://localhost:9000/images/zoo.jpg');
+INSERT INTO attractions VALUES (26,'Cueva del Indio', 'Arecibo', 'Awesome caves','http://localhost:9000/images/cuevadelindio.jpg');
+INSERT INTO attractions VALUES (27,'Museo de Artes', 'San Juan', 'Nice boring museum','http://localhost:9000/images/museo.jpg');
+INSERT INTO attractions VALUES (28,'Playa Sucia', 'Cabo Rojo', 'Awesome beach and has a lighthouse too','http://localhost:9000/images/playasucia.jpg');
+INSERT INTO attractions VALUES (29,'Castillo Seralles', 'Ponce', 'A Castle','http://localhost:9000/images/castillo.jpg');
+INSERT INTO attractions VALUES (30,'Ice Skating Arena', 'Aguadilla', 'Want to fall? Come here','http://localhost:9000/images/iceskating.jpg');
+INSERT INTO attractions VALUES (31,'Guavate', 'Cayey', 'Eat Pork, but not your wife','http://localhost:9000/images/guavate.jpg');
+INSERT INTO attractions VALUES (32,'Icacos', 'Fajardo', 'Small but worth it','http://localhost:9000/images/icacos.jpg');
+INSERT INTO attractions VALUES (33,'Observatorio de Arecibo', 'Arecibo', 'Big telescope with a ball.','http://localhost:9000/images/observatorio.jpg');
+INSERT INTO attractions VALUES (34,'Bacardi Tour', 'Catano', 'Make sure to get the free drinks','http://localhost:9000/images/bacardi.jpg');
+INSERT INTO attractions VALUES (35, 'Jobos Beach', 'Isabela', 'Awesome Beach','http://localhost:9000/images/jobos.jpg');
+INSERT INTO attractions VALUES (36,'La Perla', 'San Juan', 'Make sure you are not a cop','http://localhost:9000/images/laperla.jpg');
+INSERT INTO attractions VALUES (37,'Guajataca', 'Quebradillas', 'Camp here','http://localhost:9000/images/guajataca.jpg');
+INSERT INTO attractions VALUES (38,'Las Croabas', 'Fajardo', 'Eat an arepa','http://localhost:9000/images/croabas.jpg');
+INSERT INTO attractions VALUES (39,'Baños de Coamo', 'Coamo', 'Thermal Baths','http://localhost:9000/images/banos.jpg');
+INSERT INTO attractions VALUES (40,'Bahia Urbana', 'San Juan', ' Chill Here','http://localhost:9000/images/bahiaurbana.jpg');
+INSERT INTO attractions VALUES (41,'Portacoeli Church', 'San German', 'Another church','http://localhost:9000/images/portacoeli.jpg');
+INSERT INTO attractions VALUES (42,'Ocean Park', 'San Juan', 'Awesome beach next to Lloren Torres, bring a gun.','http://localhost:9000/images/ocean.jpg');
+INSERT INTO attractions VALUES (43,'Las Cabezas de San Juan', 'Fajardo', 'Natural reserve.','http://localhost:9000/images/cabezas.jpg');
+INSERT INTO attractions VALUES (44,'Tibes Indigenous Ceremonial Center', 'Ponce', 'Tainos (naked women)','http://localhost:9000/images/tibes.jpg');
+INSERT INTO attractions VALUES (45,'Lago Dos Bocas', 'Utuado', 'Fake Lake.','http://localhost:9000/images/dosbocas.jpg');
 
-INSERT INTO events VALUES (1,1,'Harry is going to el Yunque', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,3);
-INSERT INTO events VALUES (2,2, 'Abdiel is going to Cueva Ventana', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,1);
-INSERT INTO events VALUES (3,3, 'Harambe is going to El Morro', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,4);
-INSERT INTO events VALUES (4,4, 'Geraldo is going to las Cascadas', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,2);
+
+INSERT INTO events VALUES (1,1,'Geraldo is going to el Yunque', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,3);
+INSERT INTO events VALUES (2,2, 'Harry is going to Cueva Ventana', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,1);
+INSERT INTO events VALUES (3,3, 'Abdiel is going to El Morro', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,4);
+INSERT INTO events VALUES (4,4, 'Harambe is going to las Cascadas', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,2);
 
 INSERT INTO albums VALUES (1,1,4,'El Yunque');
 INSERT INTO albums VALUES (2,1,3,'El Morro');
@@ -186,6 +233,7 @@ INSERT INTO services VALUES (4,3,'El Yunque Tour',14);
 INSERT INTO services VALUES (3,4,'El Morro Entrance',6);
 INSERT INTO services VALUES (3,5,'El Morro Tour',12);
 INSERT INTO services VALUES (5,6,'Culebra Ferry Tickets',4);
+
 
 INSERT INTO posts VALUES (1,1, 'My awesome post', 'title', '2016-11-18', '07:30 am',40,3,2);
 INSERT INTO posts VALUES (1,2, 'My other awesome post', 'title', '2016-12-10', '09:30 pm',10,8,3);
