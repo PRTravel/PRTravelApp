@@ -52,13 +52,6 @@ picid integer
 );
 
 
-CREATE TABLE likes (
-lid integer NOT NULL, 
-uid integer NOT NULL, 
-pid integer, 
-picid integer 
-); 
-
 CREATE TABLE posts (
 uid integer NOT NULL, 
 pid integer NOT NULL, 
@@ -108,6 +101,7 @@ aid integer NOT NULL
 );
 
 CREATE TABLE friends(
+randomid integer NOT NULL,
 uid integer NOT NULL,
 fid integer NOT NULL
 );
@@ -115,10 +109,10 @@ fid integer NOT NULL
 CREATE TABLE picture(
 aid integer NOT NULL,
 picid integer NOT NULL,
-picname character varying (40),
+picname character varying (100),
 piclikes integer,
 piccomments integer,
-pimageurl character varying (40),
+pimageurl character varying (100),
 albumid integer NOT NULL
 
 );
@@ -134,23 +128,22 @@ INSERT INTO users VALUES (7, 'Max', 'Beatty', 'max123', 'password','awesome desc
 INSERT INTO users VALUES (8, 'Mike', 'Smith', 'mike123', 'password','awesome description', false, 'mike123@upr.edu','http://localhost:9000/images/mike.png');
 INSERT INTO users VALUES (9, 'Perry', 'Platipus', 'perry123', 'password','awesome description', false, 'perry123@upr.edu','http://localhost:9000/images/perry.png');
 
-
-INSERT INTO friends VALUES (1,1);
-INSERT INTO friends VALUES (1,2);
-INSERT INTO friends VALUES (1,3);
-INSERT INTO friends VALUES (1,4);
-INSERT INTO friends VALUES (2,1);
-INSERT INTO friends VALUES (2,2);
-INSERT INTO friends VALUES (2,3);
-INSERT INTO friends VALUES (2,4);
-INSERT INTO friends VALUES (3,1);
-INSERT INTO friends VALUES (3,2);
-INSERT INTO friends VALUES (3,3);
-INSERT INTO friends VALUES (3,4);
-INSERT INTO friends VALUES (4,1);
-INSERT INTO friends VALUES (4,2);
-INSERT INTO friends VALUES (4,3);
-INSERT INTO friends VALUES (4,4);
+INSERT INTO friends VALUES (1,1,1);
+INSERT INTO friends VALUES (2,1,2);
+INSERT INTO friends VALUES (3,1,3);
+INSERT INTO friends VALUES (4,1,4);
+INSERT INTO friends VALUES (5,2,1);
+INSERT INTO friends VALUES (6,2,2);
+INSERT INTO friends VALUES (7,2,3);
+INSERT INTO friends VALUES (8,2,4);
+INSERT INTO friends VALUES (9,3,1);
+INSERT INTO friends VALUES (10,3,2);
+INSERT INTO friends VALUES (11,3,3);
+INSERT INTO friends VALUES (12,3,4);
+INSERT INTO friends VALUES (13,4,1);
+INSERT INTO friends VALUES (14,4,2);
+INSERT INTO friends VALUES (15,4,3);
+INSERT INTO friends VALUES (16,4,4);
 
 INSERT INTO attractions VALUES (1,'Cueva Ventana', 'Arecibo', 'Maravillosa cueva con una vista brutal','http://localhost:9000/images/cuevaVentana.jpg');
 INSERT INTO attractions VALUES (2,'Las Cascadas', 'Aguadilla', 'Las Cascadas water park is currently known as the biggest water park in the caribbean. Recently renovated, it has several attractions to both children and adults. Its attractions include the "Crazy River" which simulates rapids river, and the Wave Pools which simulate the waves of a beach. For children there is the Kiddy Pool area, and for the lovers of speed and adventure there is the Speed Slide, "The Bomb", and the Water Tunnel. Other attractions available','http://localhost:9000/images/cascadas.jpg');
@@ -246,19 +239,15 @@ INSERT INTO posts VALUES (1,8, 'Vieques is better than Culebra', 'title', '2016-
 INSERT INTO posts VALUES (1,9, 'Las cascadas was fun', 'title', '2016-11-18', '07:30 am',40,3,2);
 INSERT INTO posts VALUES (1,10, 'El parque de las ciencias estuvo interesante', 'title', '2016-12-10', '09:30 pm',10,8,2);
 
-
-
-
-
 INSERT INTO notifications VALUES (1,1, 'Harry commented on your photo',1,null,2);
 INSERT INTO notifications VALUES (2,2, 'Geraldo liked your post.',null,1,1);
 INSERT INTO notifications VALUES (3,1, 'Harambe commented on an attraction',3,null,4);
 INSERT INTO notifications VALUES (4,1, 'Abdiel liked your photo',null,2,3);
 
-INSERT INTO picture VALUES (1,1,'Pasandola brutal en cueva ventana',12,4,'img',3);
-INSERT INTO picture VALUES (2,2,'Tirandome por la chorrera',18,2,'img',4);
-INSERT INTO picture VALUES (3,3,'Las famosas garritas',12,4,'img',2);
-INSERT INTO picture VALUES (4,4,'La mina',12,4,'img',1);
+INSERT INTO picture VALUES (1,1,'Pasandola brutal en cueva ventana',12,4,'http://localhost:9000/images/pasandolabrutal.jpg',3);
+INSERT INTO picture VALUES (2,2,'Tirandome por la chorrera',18,2,'http://localhost:9000/images/chorrera.jpg',4);
+INSERT INTO picture VALUES (3,3,'Las famosas garritas',12,4,'http://localhost:9000/images/garita.jpg',2);
+INSERT INTO picture VALUES (4,4,'La mina',12,4,'http://localhost:9000/images/mina.jpg',1);
 
 INSERT INTO comments VALUES (1, 2,'Awesome photos', '2016-11-18', '07:30 am',null,null,1);
 INSERT INTO comments VALUES (2, 2, 'Great adventure', '2016-11-18', '07:30 am',1);
@@ -280,9 +269,9 @@ INSERT INTO comments VALUES (17, 3, 'I wanna go again!', '2016-09-14', '07:30 am
 INSERT INTO comments VALUES (18, 2, 'Nice attraction!', '2016-08-12', '07:30 am',null,5);
 INSERT INTO comments VALUES (19, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
 INSERT INTO comments VALUES (20, 3, 'Great adventure', '2016-11-18', '07:30 am',10);
-INSERT INTO comments VALUES (21, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (21, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,2);
 INSERT INTO comments VALUES (22, 4, 'Great adventure', '2016-11-18', '07:30 am',10);
-INSERT INTO comments VALUES (23, 6,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
+INSERT INTO comments VALUES (23, 6,'Awesome photos', '2016-11-18', '07:30 am',10,null,2);
 INSERT INTO comments VALUES (24, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
 INSERT INTO comments VALUES (25, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
 INSERT INTO comments VALUES (26, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
@@ -290,16 +279,6 @@ INSERT INTO comments VALUES (27, 2,'Awesome photos', '2016-11-18', '07:30 am',10
 INSERT INTO comments VALUES (28, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
 INSERT INTO comments VALUES (29, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
 INSERT INTO comments VALUES (30, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
-
-INSERT INTO likes VALUES (1,4,1,null);
-INSERT INTO likes VALUES (2,4,2,null);
-INSERT INTO likes VALUES (3,4,null,1);
-INSERT INTO likes VALUES (4,4,null,2);
-INSERT INTO likes VALUES (5,4,1,null);
-INSERT INTO likes VALUES (6,4,1,null);
-INSERT INTO likes VALUES (7,4,1,null);
-INSERT INTO likes VALUES (8,4,1,null);
-INSERT INTO likes VALUES (9,4,1,null);
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_uusername_key UNIQUE (uusername);
@@ -341,23 +320,12 @@ ALTER TABLE ONLY comments
 ALTER TABLE ONLY comments
     ADD CONSTRAINT comments_picid_fkey FOREIGN KEY (picid) REFERENCES picture(picid);
 
-ALTER TABLE ONLY likes	
-    ADD CONSTRAINT likes_pkey PRIMARY KEY (lid);
-ALTER TABLE ONLY likes
-    ADD CONSTRAINT likes_uid_fkey FOREIGN KEY (uid) REFERENCES users(uid);
-ALTER TABLE ONLY likes
-    ADD CONSTRAINT likes_pid_fkey FOREIGN KEY (pid) REFERENCES posts(pid);
-ALTER TABLE ONLY likes
-    ADD CONSTRAINT likes_picid_fkey FOREIGN KEY (picid) REFERENCES picture(picid);
-
 ALTER TABLE ONLY notifications
     ADD CONSTRAINT notifications_pkey PRIMARY KEY (nid);
 ALTER TABLE ONLY notifications 
     ADD CONSTRAINT notifications_uid_fkey FOREIGN KEY (uid) REFERENCES users(uid);
 ALTER TABLE ONLY notifications 
     ADD CONSTRAINT notifications_cid_fkey FOREIGN KEY (cid) REFERENCES comments(cid);
-ALTER TABLE ONLY notifications 
-    ADD CONSTRAINT notifications_lid_fkey FOREIGN KEY (lid) REFERENCES likes(lid);
 ALTER TABLE ONLY notifications 
     ADD CONSTRAINT notifications_authorid_fkey FOREIGN KEY (authorid) REFERENCES users(uid);
 
@@ -375,7 +343,8 @@ ALTER TABLE ONLY services
 ALTER TABLE ONLY services
     ADD CONSTRAINT services_aid_fkey FOREIGN KEY (aid) REFERENCES attractions(aid);
 
-
+ALTER TABLE ONLY friends
+    ADD CONSTRAINT friends_pkey PRIMARY KEY (randomid);
 ALTER TABLE ONLY friends
     ADD CONSTRAINT friends_uid_fkey FOREIGN KEY (uid) REFERENCES users(uid);
 ALTER TABLE ONLY friends
