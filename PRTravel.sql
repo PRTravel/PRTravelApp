@@ -27,7 +27,12 @@ CREATE TABLE users
   udescription character varying(40),
   adminstatus boolean NOT NULL,
   uemail character varying(50),
-  imageurl character varying (50)
+  imageurl character varying (50),
+  ucreditcard integer NOT NULL,
+  ubilling character varying (100),
+  ucvc integer NOT NULL,
+  ucreditname character varying (100),
+  ucredittype character varying (100)
 );
 
 CREATE TABLE events (
@@ -118,15 +123,15 @@ albumid integer NOT NULL
 );
 
 
-INSERT INTO users VALUES (1, 'Geraldo', 'Lopez', 'geraldo29', 'password','awesome description', true, 'geraldo.lopez1@upr.edu','http://localhost:9000/images/geraldo.jpg');
-INSERT INTO users VALUES (2, 'Harry', 'Hernandez', 'harry123', 'password','awesome description', true, 'harry.hernandez1@upr.edu','http://localhost:9000/images/harry.jpg');
-INSERT INTO users VALUES (3, 'Abdiel', 'Vega', 'abdiel123', 'password','awesome description', true, 'abdiel.vega1@upr.edu','http://localhost:9000/images/abdiel.jpg');
-INSERT INTO users VALUES (4, 'Harambe', 'Gorilla', 'harambelives', 'password','awesome description', false, 'harambe.lives@upr.edu','http://localhost:9000/images/harambe.jpg');
-INSERT INTO users VALUES (5, 'Adam', 'Ritter', 'adam123', 'password','awesome description', false, 'adam123@upr.edu','http://localhost:9000/images/adam.jpg');
-INSERT INTO users VALUES (6, 'Ben', 'Young', 'ben123', 'password','awesome description', false, 'ben123@upr.edu','http://localhost:9000/images/ben.png');
-INSERT INTO users VALUES (7, 'Max', 'Beatty', 'max123', 'password','awesome description', false, 'max123@upr.edu','http://localhost:9000/images/max.png');
-INSERT INTO users VALUES (8, 'Mike', 'Smith', 'mike123', 'password','awesome description', false, 'mike123@upr.edu','http://localhost:9000/images/mike.png');
-INSERT INTO users VALUES (9, 'Perry', 'Platipus', 'perry123', 'password','awesome description', false, 'perry123@upr.edu','http://localhost:9000/images/perry.png');
+INSERT INTO users VALUES (1, 'Geraldo', 'Lopez', 'geraldo29', 'password','awesome description', true, 'geraldo.lopez1@upr.edu','http://localhost:9000/images/geraldo.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (2, 'Harry', 'Hernandez', 'harry123', 'password','awesome description', true, 'harry.hernandez1@upr.edu','http://localhost:9000/images/harry.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (3, 'Abdiel', 'Vega', 'abdiel123', 'password','awesome description', true, 'abdiel.vega1@upr.edu','http://localhost:9000/images/abdiel.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (4, 'Harambe', 'Gorilla', 'harambelives', 'password','awesome description', false, 'harambe.lives@upr.edu','http://localhost:9000/images/harambe.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (5, 'Adam', 'Ritter', 'adam123', 'password','awesome description', false, 'adam123@upr.edu','http://localhost:9000/images/adam.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (6, 'Ben', 'Young', 'ben123', 'password','awesome description', false, 'ben123@upr.edu','http://localhost:9000/images/ben.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (7, 'Max', 'Beatty', 'max123', 'password','awesome description', false, 'max123@upr.edu','http://localhost:9000/images/max.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (8, 'Mike', 'Smith', 'mike123', 'password','awesome description', false, 'mike123@upr.edu','http://localhost:9000/images/mike.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (9, 'Perry', 'Platipus', 'perry123', 'password','awesome description', false, 'perry123@upr.edu','http://localhost:9000/images/perry.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
 
 INSERT INTO friends VALUES (1,1,1);
 INSERT INTO friends VALUES (2,1,2);
