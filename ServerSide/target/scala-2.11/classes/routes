@@ -1,0 +1,53 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+
+# Login Controller
+GET     /                                    controllers.LoginController.login(user: String, password: String)
+
+# Image Controller 
+GET     /images/*file                        controllers.Assets.at(path = "/public/images/", file)
+
+# Register Controller
+GET     /register                            controllers.RegisterController.register
+
+# Search Bar
+GET     /search                              controllers.SearchBarController.search(find: String)
+
+# Profile Controller
+GET     /profile                             controllers.ProfileController.profile
+
+# Wish List Controller
+GET     /getWishList                         controllers.WishListController.getWishList(userID: Integer)
+
+# Album Controller
+GET     /getAlbums                           controllers.AlbumController.getAlbums(userID: Integer)
+
+# Picture Controller
+GET     /getPictures                         controllers.PictureController.getPictures(albumID: Integer)
+
+# Notifications Controller
+GET     /getNotifications                   controllers.NotificationsController.getNotifications(userID: Integer)
+
+# Newsfeed Controller
+GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
+
+# Newsfeed Controller
+GET     /getNewsfeedInfo                     controllers.NewsfeedController.getNewsfeedInfo(user: Integer)
+
+# Calendar Controller
+GET     /getCalendar                         controllers.CalendarController.getCalendar(userID: Integer)
+
+GET     /getProfileCalendar                  controllers.CalendarController.getProfileCalendar(userID: Integer)
+
+
+# Attractions Controller
+GET     /getAttractions                      controllers.AttractionController.getAttractions
+
+# Attractions Controller
+GET     /getAttractionsDetail                controllers.AttractionController.getAttractionsDetail(attractionID: Integer)
+
+# Admin Controller
+GET     /getAdmin                           controllers.AdminController.getAdmin

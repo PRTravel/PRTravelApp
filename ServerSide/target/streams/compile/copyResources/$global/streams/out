@@ -1,0 +1,4 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/erunandesu26/Documents/PRTravelServer/conf/logback.xml,/home/erunandesu26/Documents/PRTravelServer/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/erunandesu26/Documents/PRTravelServer/conf/application.conf,/home/erunandesu26/Documents/PRTravelServer/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/erunandesu26/Documents/PRTravelServer/conf/routes,/home/erunandesu26/Documents/PRTravelServer/target/scala-2.11/classes/routes)[0m

@@ -1,0 +1,56 @@
+<ion-view view-title="Picture">
+
+    <ion-content ng-controller="SpecificPic">
+    <div class="header">
+         <button class="button  button-clear button-light" style="left: 90%;" ng-click="closePicture()">
+                        <i class="ion-ios-close-empty" style="font-size: 35px"></i>
+        </button>
+    </div>
+  <div class="list card">
+            <div class="item item-body">
+
+                <img class="full-image" ng-src="{{picture.pimageurl}}">
+
+                <p>
+
+                    <a href="#" class="subdued">{{picture.piclikes}} Like</a>
+
+                    <a href="#" class="subdued">    {{   picture.piccomments}} Comments</a>
+
+                </p>
+                </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+
+              <a ng-show="!picture.hasLikedUser" class="tab-item" ng-click="toggleLikeUserPage(picture)">
+                    <i class="icon ion-heart"></i>Like
+                    </a>
+
+            <a ng-show="picture.hasLikedUser" class="tab-item" ng-click="toggleLikeUserPage(picture)">
+                <i class="icon ion-heart assertive"></i> Like
+                </a>
+
+                <a class="tab-item" ng-click="showCommentPopup(picture)">
+
+                    <i class="icon ion-chatbox" ></i> Comment
+
+                </a>
+        </div>
+            </div>
+
+
+
+  <div class="item item-divider dividers">
+                    Comments:
+        </div>
+
+
+        <a class="item item-avatar" ng-repeat="comment in picture.comments" >
+            <img src="{{comment.imageurl}}">
+            <p style="position: absolute;right: 10px;">{{comment.cdate | date: "d MMM yyyy"}}</p>
+            <h2 style="font-family: Georgia;font-weight: bold;">{{comment.ufirst}} {{comment.ulast}}</h2>
+            <h3>{{comment.ctext}}</h3>
+        </a>
+
+    </ion-content>
+
+</ion-view>
