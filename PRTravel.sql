@@ -19,7 +19,7 @@ SET default_with_oids = false;
 
 CREATE TABLE users
 (
-  uid integer NOT NULL,
+  uid SERIAL,
   ufirst character(8),
   ulast character varying(40),
   uusername character varying(40),
@@ -32,12 +32,13 @@ CREATE TABLE users
   ubilling character varying (100),
   ucvc integer NOT NULL,
   ucreditname character varying (100),
-  ucredittype character varying (100)
+  ucredittype character varying (100),
+  active boolean NOT NULL
 );
 
 CREATE TABLE events (
 uid integer NOT NULL,
-eid integer NOT NULL, 
+eid SERIAL, 
 title character varying(100),
 start character varying(100),
 end1 character varying (100),
@@ -106,7 +107,7 @@ aid integer NOT NULL
 );
 
 CREATE TABLE friends(
-randomid integer NOT NULL,
+randomid SERIAL,
 uid integer NOT NULL,
 fid integer NOT NULL
 );
@@ -123,15 +124,15 @@ albumid integer NOT NULL
 );
 
 
-INSERT INTO users VALUES (1, 'Geraldo', 'Lopez', 'geraldo29', 'password','awesome description', true, 'geraldo.lopez1@upr.edu','http://localhost:9000/images/geraldo.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (2, 'Harry', 'Hernandez', 'harry123', 'password','awesome description', true, 'harry.hernandez1@upr.edu','http://localhost:9000/images/harry.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (3, 'Abdiel', 'Vega', 'abdiel123', 'password','awesome description', true, 'abdiel.vega1@upr.edu','http://localhost:9000/images/abdiel.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (4, 'Harambe', 'Gorilla', 'harambelives', 'password','awesome description', false, 'harambe.lives@upr.edu','http://localhost:9000/images/harambe.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (5, 'Adam', 'Ritter', 'adam123', 'password','awesome description', false, 'adam123@upr.edu','http://localhost:9000/images/adam.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (6, 'Ben', 'Young', 'ben123', 'password','awesome description', false, 'ben123@upr.edu','http://localhost:9000/images/ben.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (7, 'Max', 'Beatty', 'max123', 'password','awesome description', false, 'max123@upr.edu','http://localhost:9000/images/max.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (8, 'Mike', 'Smith', 'mike123', 'password','awesome description', false, 'mike123@upr.edu','http://localhost:9000/images/mike.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
-INSERT INTO users VALUES (9, 'Perry', 'Platipus', 'perry123', 'password','awesome description', false, 'perry123@upr.edu','http://localhost:9000/images/perry.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa');
+INSERT INTO users VALUES (1, 'Geraldo', 'Lopez', 'geraldo29', 'password','awesome description', true, 'geraldo.lopez1@upr.edu','http://localhost:9000/images/geraldo.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
+INSERT INTO users VALUES (2, 'Harry', 'Hernandez', 'harry123', 'password','awesome description', true, 'harry.hernandez1@upr.edu','http://localhost:9000/images/harry.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
+INSERT INTO users VALUES (3, 'Abdiel', 'Vega', 'abdiel123', 'password','awesome description', true, 'abdiel.vega1@upr.edu','http://localhost:9000/images/abdiel.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
+INSERT INTO users VALUES (4, 'Harambe', 'Gorilla', 'harambelives', 'password','awesome description', false, 'harambe.lives@upr.edu','http://localhost:9000/images/harambe.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
+INSERT INTO users VALUES (5, 'Adam', 'Ritter', 'adam123', 'password','awesome description', false, 'adam123@upr.edu','http://localhost:9000/images/adam.jpg',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
+INSERT INTO users VALUES (6, 'Ben', 'Young', 'ben123', 'password','awesome description', false, 'ben123@upr.edu','http://localhost:9000/images/ben.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
+INSERT INTO users VALUES (7, 'Max', 'Beatty', 'max123', 'password','awesome description', false, 'max123@upr.edu','http://localhost:9000/images/max.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true );
+INSERT INTO users VALUES (8, 'Mike', 'Smith', 'mike123', 'password','awesome description', false, 'mike123@upr.edu','http://localhost:9000/images/mike.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
+INSERT INTO users VALUES (9, 'Perry', 'Platipus', 'perry123', 'password','awesome description', false, 'perry123@upr.edu','http://localhost:9000/images/perry.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', true);
 
 INSERT INTO friends VALUES (1,1,1);
 INSERT INTO friends VALUES (2,1,2);
@@ -196,11 +197,6 @@ INSERT INTO attractions VALUES (43,'Las Cabezas de San Juan', 'Fajardo', 'Natura
 INSERT INTO attractions VALUES (44,'Tibes Indigenous Ceremonial Center', 'Ponce', 'Tainos (naked women)','http://localhost:9000/images/tibes.jpg');
 INSERT INTO attractions VALUES (45,'Lago Dos Bocas', 'Utuado', 'Fake Lake.','http://localhost:9000/images/dosbocas.jpg');
 
-
-INSERT INTO events VALUES (1,1,'Geraldo is going to el Yunque', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,3);
-INSERT INTO events VALUES (2,2, 'Harry is going to Cueva Ventana', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,1);
-INSERT INTO events VALUES (3,3, 'Abdiel is going to El Morro', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,4);
-INSERT INTO events VALUES (4,4, 'Harambe is going to las Cascadas', '2016-11-7 10:20:00', '2016-11-7 11:20:00',false,2);
 
 INSERT INTO albums VALUES (1,1,4,'El Yunque');
 INSERT INTO albums VALUES (2,1,3,'El Morro');
@@ -290,7 +286,7 @@ ALTER TABLE ONLY users
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_uemail_key UNIQUE (uemail);
 ALTER TABLE ONLY users
-    ADD CONSTRAINT users_pkey PRIMARY KEY (uid);
+    ADD CONSTRAINT users_pkey  PRIMARY KEY (uid);
 
 
 
