@@ -19,7 +19,7 @@ SET default_with_oids = false;
 
 CREATE TABLE users
 (
-  uid SERIAL,
+  uid BIGSERIAL,
   ufirst character(8),
   ulast character varying(40),
   uusername character varying(40),
@@ -38,7 +38,7 @@ CREATE TABLE users
 
 CREATE TABLE events (
 uid integer NOT NULL,
-eid SERIAL, 
+eid BIGSERIAL, 
 title character varying(100),
 start character varying(100),
 end1 character varying (100),
@@ -47,7 +47,7 @@ aid integer NOT NULL
 );
 
 CREATE TABLE comments (
-cid integer NOT NULL, 
+cid BIGSERIAL NOT NULL, 
 uid integer NOT NULL, 
 ctext character varying (100),
 cdate character varying (40),
@@ -60,7 +60,7 @@ picid integer
 
 CREATE TABLE posts (
 uid integer NOT NULL, 
-pid integer NOT NULL, 
+pid BIGSERIAL NOT NULL, 
 ptext character varying (100),
 ptitle character varying (100),
 pdate character varying (40),
@@ -93,7 +93,7 @@ albumname character varying (40)
 );
 
 CREATE TABLE notifications (
-nid integer NOT NULL, 
+nid BIGSERIAL NOT NULL, 
 uid integer NOT NULL,
 ntext character varying(100),
 cid integer,
@@ -107,7 +107,7 @@ aid integer NOT NULL
 );
 
 CREATE TABLE friends(
-randomid SERIAL,
+randomid BIGSERIAL,
 uid integer NOT NULL,
 fid integer NOT NULL
 );
@@ -197,29 +197,10 @@ INSERT INTO attractions VALUES (43,'Las Cabezas de San Juan', 'Fajardo', 'Natura
 INSERT INTO attractions VALUES (44,'Tibes Indigenous Ceremonial Center', 'Ponce', 'Tainos (naked women)','http://localhost:9000/images/tibes.jpg');
 INSERT INTO attractions VALUES (45,'Lago Dos Bocas', 'Utuado', 'Fake Lake.','http://localhost:9000/images/dosbocas.jpg');
 
-
 INSERT INTO albums VALUES (1,1,4,'El Yunque');
 INSERT INTO albums VALUES (2,1,3,'El Morro');
 INSERT INTO albums VALUES (3,1,1,'Cueva Ventana');
 INSERT INTO albums VALUES (4,1,2,'Las Cascadas');
-
-
-INSERT INTO wishlist VALUES (1,1);
-INSERT INTO wishlist VALUES (1,2);
-INSERT INTO wishlist VALUES (1,3);
-INSERT INTO wishlist VALUES (1,4);
-INSERT INTO wishlist VALUES (2,1);
-INSERT INTO wishlist VALUES (2,2);
-INSERT INTO wishlist VALUES (2,3);
-INSERT INTO wishlist VALUES (2,4);
-INSERT INTO wishlist VALUES (3,1);
-INSERT INTO wishlist VALUES (3,2);
-INSERT INTO wishlist VALUES (3,3);
-INSERT INTO wishlist VALUES (3,4);
-INSERT INTO wishlist VALUES (4,1);
-INSERT INTO wishlist VALUES (4,2);
-INSERT INTO wishlist VALUES (4,3);
-INSERT INTO wishlist VALUES (4,4);
 
 INSERT INTO services VALUES (1,1,'Cueva Ventana Entrance',12);
 INSERT INTO services VALUES (2,2,'Las Cascadas Entrance',16);
@@ -228,58 +209,10 @@ INSERT INTO services VALUES (3,4,'El Morro Entrance',6);
 INSERT INTO services VALUES (3,5,'El Morro Tour',12);
 INSERT INTO services VALUES (5,6,'Culebra Ferry Tickets',4);
 
-
-INSERT INTO posts VALUES (1,1, 'El salto de Dona Juana was scary', 'title', '2016-11-18', '07:30 am',40,3,2);
-INSERT INTO posts VALUES (1,2, 'Crash Boat was awesome', 'title', '2016-12-10', '09:30 pm',10,8,4);
-INSERT INTO posts VALUES (1,3, 'PortaCoeli was one more church', 'title', '2016-11-18', '07:30 am',40,3,5);
-INSERT INTO posts VALUES (1,4, 'Tibes Ceremonial Park was fun', 'title', '2016-12-10', '09:30 pm',10,8,6);
-INSERT INTO posts VALUES (1,5, 'El yunque is great', 'title', '2016-11-18', '07:30 am',40,3,7);
-INSERT INTO posts VALUES (1,6, 'Culebra was a pain to get to ', 'title', '2016-12-10', '09:30 pm',10,8,1);
-INSERT INTO posts VALUES (1,7, 'El morro was historic', 'title', '2016-11-18', '07:30 am',40,3,2);
-INSERT INTO posts VALUES (1,8, 'Vieques is better than Culebra', 'title', '2016-12-10', '09:30 pm',10,8,2);
-INSERT INTO posts VALUES (1,9, 'Las cascadas was fun', 'title', '2016-11-18', '07:30 am',40,3,2);
-INSERT INTO posts VALUES (1,10, 'El parque de las ciencias estuvo interesante', 'title', '2016-12-10', '09:30 pm',10,8,2);
-
-INSERT INTO notifications VALUES (1,1, 'Harry commented on your photo',1,null,2);
-INSERT INTO notifications VALUES (2,2, 'Geraldo liked your post.',null,1,1);
-INSERT INTO notifications VALUES (3,1, 'Harambe commented on an attraction',3,null,4);
-INSERT INTO notifications VALUES (4,1, 'Abdiel liked your photo',null,2,3);
-
 INSERT INTO picture VALUES (1,1,'Pasandola brutal en cueva ventana',12,4,'http://localhost:9000/images/pasandolabrutal.jpg',3);
 INSERT INTO picture VALUES (2,2,'Tirandome por la chorrera',18,2,'http://localhost:9000/images/chorrera.jpg',4);
 INSERT INTO picture VALUES (3,3,'Las famosas garritas',12,4,'http://localhost:9000/images/garita.jpg',2);
 INSERT INTO picture VALUES (4,4,'La mina',12,4,'http://localhost:9000/images/mina.jpg',1);
-
-INSERT INTO comments VALUES (1, 2,'Awesome photos', '2016-11-18', '07:30 am',null,null,1);
-INSERT INTO comments VALUES (2, 2, 'Great adventure', '2016-11-18', '07:30 am',1);
-INSERT INTO comments VALUES (3, 1, 'This attraction was awesome', '2016-11-23', '07:30 am',null,1);
-INSERT INTO comments VALUES (4, 4, 'Awesome', '2016-11-18', '07:30 am',null,null,1);
-INSERT INTO comments VALUES (5, 2, 'Nice attraction!', '2016-11-03', '07:30 am',null,1);
-INSERT INTO comments VALUES (6, 3, 'Had a great time.', '2016-08-18', '07:30 am',null,1);
-INSERT INTO comments VALUES (7, 3, 'I wanna go again!', '2016-11-10', '07:30 am',null,2);
-INSERT INTO comments VALUES (8, 2, 'Beautiful place', '2016-01-18', '07:30 am',null,2);
-INSERT INTO comments VALUES (9, 1, 'Pretty awesome!', '2015-11-18', '07:30 am',null,2);
-INSERT INTO comments VALUES (10, 4, 'I wanna go again!', '2016-02-07', '07:30 am',null,3);
-INSERT INTO comments VALUES (11, 2, 'Beautiful place', '2016-04-01', '07:30 am',null,3);
-INSERT INTO comments VALUES (12, 3, 'Pretty awesome!', '2016-09-16', '07:30 am',null,3);
-INSERT INTO comments VALUES (13, 3, 'This attraction was awesome', '2013-1-18', '07:30 am',null,4);
-INSERT INTO comments VALUES (14, 2, 'Nice attraction!', '2016-07-26', '07:30 am',null,4);
-INSERT INTO comments VALUES (15, 4, 'Had a great time.', '2016-03-07', '07:30 am',null,4);
-INSERT INTO comments VALUES (16, 1, 'Nice attraction!', '2016-05-19', '07:30 am',null,5);
-INSERT INTO comments VALUES (17, 3, 'I wanna go again!', '2016-09-14', '07:30 am',null,5);
-INSERT INTO comments VALUES (18, 2, 'Nice attraction!', '2016-08-12', '07:30 am',null,5);
-INSERT INTO comments VALUES (19, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
-INSERT INTO comments VALUES (20, 3, 'Great adventure', '2016-11-18', '07:30 am',10);
-INSERT INTO comments VALUES (21, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,2);
-INSERT INTO comments VALUES (22, 4, 'Great adventure', '2016-11-18', '07:30 am',10);
-INSERT INTO comments VALUES (23, 6,'Awesome photos', '2016-11-18', '07:30 am',10,null,2);
-INSERT INTO comments VALUES (24, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
-INSERT INTO comments VALUES (25, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
-INSERT INTO comments VALUES (26, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
-INSERT INTO comments VALUES (27, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
-INSERT INTO comments VALUES (28, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
-INSERT INTO comments VALUES (29, 2,'Awesome photos', '2016-11-18', '07:30 am',10,null,1);
-INSERT INTO comments VALUES (30, 2, 'Great adventure', '2016-11-18', '07:30 am',10);
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_uusername_key UNIQUE (uusername);
@@ -287,8 +220,6 @@ ALTER TABLE ONLY users
     ADD CONSTRAINT users_uemail_key UNIQUE (uemail);
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey  PRIMARY KEY (uid);
-
-
 
 ALTER TABLE ONLY attractions
     ADD CONSTRAINT attractions_pkey PRIMARY KEY (aid);
