@@ -284,6 +284,8 @@ ALTER TABLE ONLY friends
 
 
 ALTER TABLE ONLY wishlist
+    ADD CONSTRAINT wishlist_pkey PRIMARY KEY (uid, aid);
+ALTER TABLE ONLY wishlist
     ADD CONSTRAINT wishlist_uid_fkey FOREIGN KEY (uid) REFERENCES users(uid);
 ALTER TABLE ONLY wishlist
     ADD CONSTRAINT wishlist_aid_fkey FOREIGN KEY (aid) REFERENCES attractions(aid);
