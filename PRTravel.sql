@@ -114,7 +114,7 @@ fid integer NOT NULL
 
 CREATE TABLE picture(
 aid integer NOT NULL,
-picid integer NOT NULL,
+picid BIGSERIAL NOT NULL,
 picname character varying (100),
 piclikes integer,
 piccomments integer,
