@@ -86,7 +86,7 @@ price integer NOT NULL
 );
 
 CREATE TABLE albums(
-albumid integer NOT NULL,
+albumid BIGSERIAL NOT NULL,
 uid integer NOT NULL,
 aid integer NOT NULL,
 albumname character varying (40)
@@ -197,22 +197,12 @@ INSERT INTO attractions VALUES (43,'Las Cabezas de San Juan', 'Fajardo', 'Natura
 INSERT INTO attractions VALUES (44,'Tibes Indigenous Ceremonial Center', 'Ponce', 'Tainos (naked women)','http://localhost:9000/images/tibes.jpg');
 INSERT INTO attractions VALUES (45,'Lago Dos Bocas', 'Utuado', 'Fake Lake.','http://localhost:9000/images/dosbocas.jpg');
 
-INSERT INTO albums VALUES (1,1,4,'El Yunque');
-INSERT INTO albums VALUES (2,1,3,'El Morro');
-INSERT INTO albums VALUES (3,1,1,'Cueva Ventana');
-INSERT INTO albums VALUES (4,1,2,'Las Cascadas');
-
 INSERT INTO services VALUES (1,1,'Cueva Ventana Entrance',12);
 INSERT INTO services VALUES (2,2,'Las Cascadas Entrance',16);
 INSERT INTO services VALUES (4,3,'El Yunque Tour',14);
 INSERT INTO services VALUES (3,4,'El Morro Entrance',6);
 INSERT INTO services VALUES (3,5,'El Morro Tour',12);
 INSERT INTO services VALUES (5,6,'Culebra Ferry Tickets',4);
-
-INSERT INTO picture VALUES (1,1,'Pasandola brutal en cueva ventana',12,4,'http://localhost:9000/images/pasandolabrutal.jpg',3);
-INSERT INTO picture VALUES (2,2,'Tirandome por la chorrera',18,2,'http://localhost:9000/images/chorrera.jpg',4);
-INSERT INTO picture VALUES (3,3,'Las famosas garritas',12,4,'http://localhost:9000/images/garita.jpg',2);
-INSERT INTO picture VALUES (4,4,'La mina',12,4,'http://localhost:9000/images/mina.jpg',1);
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_uusername_key UNIQUE (uusername);
