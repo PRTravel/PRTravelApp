@@ -51,7 +51,6 @@ cid BIGSERIAL NOT NULL,
 uid integer NOT NULL, 
 ctext character varying (100),
 cdate character varying (40),
-ctime character varying (40),
 pid integer,
 aid integer,
 picid integer
@@ -62,10 +61,7 @@ CREATE TABLE posts (
 uid integer NOT NULL, 
 pid BIGSERIAL NOT NULL, 
 ptext character varying (100),
-ptitle character varying (100),
 pdate character varying (40),
-ptime character varying (40),
-plikes integer, 
 pcomments_count integer,
 pauthor integer NOT NULL
 );
@@ -97,7 +93,6 @@ nid BIGSERIAL NOT NULL,
 uid integer NOT NULL,
 ntext character varying(100),
 cid integer,
-lid integer,
 authorid integer NOT NULL
 );
 
@@ -107,7 +102,6 @@ aid integer NOT NULL
 );
 
 CREATE TABLE friends(
-randomid BIGSERIAL,
 uid integer NOT NULL,
 fid integer NOT NULL
 );
@@ -116,7 +110,6 @@ CREATE TABLE picture(
 aid integer NOT NULL,
 picid BIGSERIAL NOT NULL,
 picname character varying (100),
-piclikes integer,
 piccomments integer,
 pimageurl character varying (100),
 albumid integer NOT NULL
@@ -134,22 +127,22 @@ INSERT INTO users VALUES (7, 'Max', 'Beatty', 'max123', 'password','awesome desc
 INSERT INTO users VALUES (8, 'Mike', 'Smith', 'mike123', 'password','awesome description', false, 'mike123@upr.edu','http://localhost:9000/images/mike.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', -1);
 INSERT INTO users VALUES (9, 'Perry', 'Platipus', 'perry123', 'password','awesome description', false, 'perry123@upr.edu','http://localhost:9000/images/perry.png',123456789,'mayaguez terrace 00961', 224, 'Geraldo G Lopez', 'visa', -1);
 
-INSERT INTO friends VALUES (1,1,1);
-INSERT INTO friends VALUES (2,1,2);
-INSERT INTO friends VALUES (3,1,3);
-INSERT INTO friends VALUES (4,1,4);
-INSERT INTO friends VALUES (5,2,1);
-INSERT INTO friends VALUES (6,2,2);
-INSERT INTO friends VALUES (7,2,3);
-INSERT INTO friends VALUES (8,2,4);
-INSERT INTO friends VALUES (9,3,1);
-INSERT INTO friends VALUES (10,3,2);
-INSERT INTO friends VALUES (11,3,3);
-INSERT INTO friends VALUES (12,3,4);
-INSERT INTO friends VALUES (13,4,1);
-INSERT INTO friends VALUES (14,4,2);
-INSERT INTO friends VALUES (15,4,3);
-INSERT INTO friends VALUES (16,4,4);
+INSERT INTO friends VALUES (1,1);
+INSERT INTO friends VALUES (1,2);
+INSERT INTO friends VALUES (1,3);
+INSERT INTO friends VALUES (1,4);
+INSERT INTO friends VALUES (2,1);
+INSERT INTO friends VALUES (2,2);
+INSERT INTO friends VALUES (2,3);
+INSERT INTO friends VALUES (2,4);
+INSERT INTO friends VALUES (3,1);
+INSERT INTO friends VALUES (3,2);
+INSERT INTO friends VALUES (3,3);
+INSERT INTO friends VALUES (3,4);
+INSERT INTO friends VALUES (4,1);
+INSERT INTO friends VALUES (4,2);
+INSERT INTO friends VALUES (4,3);
+INSERT INTO friends VALUES (4,4);
 
 INSERT INTO attractions VALUES (1,'Cueva Ventana', 'Arecibo', 'Maravillosa cueva con una vista brutal','http://localhost:9000/images/cuevaVentana.jpg');
 INSERT INTO attractions VALUES (2,'Las Cascadas', 'Aguadilla', 'Las Cascadas water park is currently known as the biggest water park in the caribbean. Recently renovated, it has several attractions to both children and adults. Its attractions include the "Crazy River" which simulates rapids river, and the Wave Pools which simulate the waves of a beach. For children there is the Kiddy Pool area, and for the lovers of speed and adventure there is the Speed Slide, "The Bomb", and the Water Tunnel. Other attractions available','http://localhost:9000/images/cascadas.jpg');
@@ -266,7 +259,7 @@ ALTER TABLE ONLY services
     ADD CONSTRAINT services_aid_fkey FOREIGN KEY (aid) REFERENCES attractions(aid);
 
 ALTER TABLE ONLY friends
-    ADD CONSTRAINT friends_pkey PRIMARY KEY (randomid);
+    ADD CONSTRAINT friends_pkey PRIMARY KEY (uid, fid);
 ALTER TABLE ONLY friends
     ADD CONSTRAINT friends_uid_fkey FOREIGN KEY (uid) REFERENCES users(uid);
 ALTER TABLE ONLY friends
